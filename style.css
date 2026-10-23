@@ -1,0 +1,178 @@
+/* Reset básico para padronizar margens e espaçamentos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos globais e variáveis de cores */
+:root {
+  --bg-gradient: linear-gradient(135deg, #1e1b4b, #312e81, #0f172a);
+  --primary-purple: #7c3aed;
+  --primary-blue: #2563eb;
+  --accent-cyan: #06b6d4;
+  --text-light: #f8fafc;
+  --card-bg: rgba(255, 255, 255, 0.07);
+  --table-bg: #ffffff;
+  --badge-good: #10b981;
+  --badge-warning: #f59e0b;
+  --badge-neutral: #64748b;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-light);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container centralizado */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Cabeçalho do boletim */
+.header {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(to right, #a855f7, var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.header .subtitle {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  letter-spacing: 1px;
+}
+
+/* Grid de Cards com Gradiente */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.4), rgba(37, 99, 235, 0.4));
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(6, 182, 212, 0.2);
+}
+
+.card h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #93c5fd;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.card-tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  background: rgba(6, 182, 212, 0.2);
+  color: var(--accent-cyan);
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--accent-cyan);
+  width: fit-content;
+}
+
+/* Container da Tabela Responsiva */
+.table-container {
+  background: var(--table-bg);
+  border-radius: 16px;
+  overflow-x: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.boletim-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #1e293b;
+  text-align: left;
+  min-width: 650px;
+}
+
+.boletim-table th {
+  background-color: #1e1b4b;
+  color: #f8fafc;
+  padding: 16px 12px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.boletim-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.boletim-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.boletim-table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* Badges para a Situação da disciplina */
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: white;
+}
+
+.badge-bom {
+  background-color: var(--badge-good);
+}
+
+.badge-atencao {
+  background-color: var(--badge-warning);
+}
+
+.badge-indisponivel {
+  background-color: var(--badge-neutral);
+}
+
+/* Ajustes para celular */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
