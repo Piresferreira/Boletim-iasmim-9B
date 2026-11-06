@@ -15,57 +15,82 @@
     <!-- Cabeçalho principal -->
     <header class="header">
       <h1>Boletim Digital</h1>
-      <p class="subtitle">9º Ano • Estudante Exemplo</p>
+      <p class="subtitle">9º Ano | Turma 9B | Chamada 16</p>
     </header>
 
-    <!-- Área de cards com resumo geral -->
-    <section class="cards-grid">
-      <div class="card card-media">
-        <h3>Média Geral</h3>
-        <p class="card-value" id="card-media-geral">--</p>
-      </div>
-
-      <div class="card card-faltas">
-        <h3>Total de Faltas</h3>
-        <p class="card-value" id="card-total-faltas">--</p>
-      </div>
-
-      <div class="card card-frequencia">
-        <h3>Frequência Demonstrativa</h3>
-        <p class="card-value" id="card-frequencia">92%</p>
-        <span class="card-tag">Frequência adequada</span>
-      </div>
-
-      <div class="card card-bom-desempenho">
-        <h3>Bom Desempenho</h3>
-        <p class="card-value" id="card-bom-desempenho">--</p>
-      </div>
-
-      <div class="card card-atencao">
-        <h3>Precisam de Atenção</h3>
-        <p class="card-value" id="card-precisam-atencao">--</p>
+    <!-- Área de Acesso por PIN -->
+    <section class="auth-section" id="auth-section">
+      <div class="auth-card">
+        <h2>Acesso ao Boletim</h2>
+        <p class="auth-info"><strong>Turma:</strong> 9B | <strong>Chamada:</strong> 16</p>
+        <div class="auth-form">
+          <input type="password" id="pin-input" placeholder="Digite seu PIN" maxlength="10" autocomplete="off">
+          <button type="button" id="btn-entrar" onclick="fazerLogin()">Entrar</button>
+        </div>
+        <p class="auth-status" id="auth-status"></p>
       </div>
     </section>
 
-    <!-- Tabela responsiva de disciplinas -->
-    <section class="table-container">
-      <table class="boletim-table">
-        <thead>
-          <tr>
-            <th>Disciplina</th>
-            <th>1º Tri</th>
-            <th>2º Tri</th>
-            <th>3º Tri</th>
-            <th>Média</th>
-            <th>Faltas</th>
-            <th>Situação</th>
-          </tr>
-        </thead>
-        <tbody id="tabela-corpo">
-          <!-- As 15 linhas das disciplinas serão preenchidas dinamicamente pelo JavaScript -->
-        </tbody>
-      </table>
-    </section>
+    <!-- Conteúdo do Boletim (Oculto até o login) -->
+    <main id="boletim-content" style="display: none;">
+      
+      <!-- Barra de Ações (Edição e Mensagens) -->
+      <section class="actions-bar">
+        <button type="button" id="btn-alterar" onclick="alternarModoEdicao()">Alterar dados</button>
+        <button type="button" id="btn-salvar" onclick="salvarDadosApi()" style="display: none;">Salvar alterações</button>
+        <span id="mensagem-status" class="status-msg"></span>
+      </section>
+
+      <!-- Área de cards com resumo geral -->
+      <section class="cards-grid">
+        <div class="card card-media">
+          <h3>Média Geral</h3>
+          <p class="card-value" id="card-media-geral">--</p>
+        </div>
+
+        <div class="card card-faltas">
+          <h3>Total de Faltas</h3>
+          <p class="card-value" id="card-total-faltas">--</p>
+        </div>
+
+        <div class="card card-frequencia">
+          <h3>Frequência Demonstrativa</h3>
+          <p class="card-value" id="card-frequencia">92%</p>
+          <span class="card-tag">Frequência adequada</span>
+        </div>
+
+        <div class="card card-bom-desempenho">
+          <h3>Bom Desempenho</h3>
+          <p class="card-value" id="card-bom-desempenho">--</p>
+        </div>
+
+        <div class="card card-atencao">
+          <h3>Precisam de Atenção</h3>
+          <p class="card-value" id="card-precisam-atencao">--</p>
+        </div>
+      </section>
+
+      <!-- Tabela responsiva de disciplinas -->
+      <section class="table-container">
+        <table class="boletim-table">
+          <thead>
+            <tr>
+              <th>Disciplina</th>
+              <th>1º Tri</th>
+              <th>2º Tri</th>
+              <th>3º Tri</th>
+              <th>Média</th>
+              <th>Faltas</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-corpo">
+            <!-- As disciplinas serão preenchidas dinamicamente pelo JavaScript -->
+          </tbody>
+        </table>
+      </section>
+
+    </main>
 
   </div>
 
